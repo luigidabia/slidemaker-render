@@ -1,7 +1,7 @@
-FROM node:18-bullseye-slim
+FROM node:20-alpine
 
-# Instala o FFmpeg nativo completo com todas as bibliotecas de áudio e vídeo
-RUN apt-get update && apt-get install -y ffmpeg && rm -rf /var/lib/apt/lists/*
+# Instala o FFmpeg nativo superleve, otimizado e sem erros de repositório
+RUN apk add --no-cache ffmpeg
 
 WORKDIR /app
 COPY package*.json ./
